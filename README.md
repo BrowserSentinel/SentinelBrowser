@@ -20,6 +20,8 @@ Sentinel Browser is a privacy-focused web browser written in Python. It includes
 
 - *No History Tracking* - Your browsing history is not stored locally or sent anywhere. Each session starts fresh for complete privacy.
 
+- *Sentinel Cloud Browser* - Access the [Sentinel Cloud Browser](https://sentinel.x10.bz) to browse the web privately and securely from the cloud. 
+
 ## Getting Started
 
 Using Sentinel Browser is simple:
