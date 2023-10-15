@@ -24,11 +24,11 @@ Sentinel Browser is a privacy-focused web browser written in Python. It includes
 
 Using Sentinel Browser is simple:
 
-1. Download the latest version from the [releases page](https://github.com/user/sentinel-browser/releases).
+1. Download the latest version from the [releases page]().
 2. Extract the downloaded zip file.
 3. Run the `start.bat` script to launch Sentinel Browser.
 4. Start browsing!
 
 The browser will open with a clean homepage. You can visit your favorite sites, search privately, and manage tabs however you like. Sentinel Browser gives you control and protects your privacy.
 
-We welcome contributions and bug reports on [GitHub](https://github.com/user/sentinel-browser). Reach out if you have any questions!
+We welcome contributions and bug reports on [GitHub](). Reach out if you have any questions!
