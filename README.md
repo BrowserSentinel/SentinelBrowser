@@ -33,4 +33,4 @@ Using Sentinel Browser is simple:
 
 The browser will open with a clean homepage. You can visit your favorite sites, search privately, and manage tabs however you like. Sentinel Browser gives you control and protects your privacy.
 
-We welcome contributions and bug reports on [GitHub](). Reach out if you have any questions!
+We welcome contributions and bug reports on [GitHub](https://github.com/BrowserSentinel/SentinelBrowser/issues). Reach out if you have any questions!
