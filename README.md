@@ -28,7 +28,7 @@ Using Sentinel Browser is simple:
 
 1. Download the latest version from the [releases page]().
 2. Extract the downloaded zip file.
-3. Run the `start.bat` script to launch Sentinel Browser.
+3. Run the `install & start.bat` script to launch Sentinel Browser.
 4. Start browsing!
 
 The browser will open with a clean homepage. You can visit your favorite sites, search privately, and manage tabs however you like. Sentinel Browser gives you control and protects your privacy.
