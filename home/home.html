@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Sentinel Browser</title>
+
+  <style>
+
+    body {
+      background: url(assets/bg.png);
+      font-family: Arial;
+      margin: 0;
+    }
+
+    #sentinel {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 68px;
+      font-style: oblique;
+      color: #fff;
+      text-align: center;
+    }
+
+    #time {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-style: oblique;
+      font-size: 46px;
+    }
+
+    #fav-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px 20px;
+      background: #0000006c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #fav-widget {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    #close-btn {
+      background: #ccc;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .site-item {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="sentinel">Sentinel Browser</div>
+
+  <div id="time"></div>
+
+  <button id="fav-btn">Favorite Sites</button>
+
+  <div id="fav-widget">
+
+    <button id="close-btn">Close</button>
+
+    <div id="sites"></div>
+
+    <button id="add-btn">Add Site</button>
+
+  </div>
+
+  <script>
+
+const timeEl = document.getElementById('time'); 
+
+// Update time
+function updateTime() {
+  let date = new Date();
+  timeEl.textContent = date.toLocaleTimeString();
+}
+
+setInterval(updateTime, 1000);
+
+let sites = [];  
+
+// Get saved sites from localStorage
+const savedSites = localStorage.getItem('favoriteSites');
+if (savedSites) {
+  sites = JSON.parse(savedSites);
+}
+
+const favBtn = document.getElementById('fav-btn');
+const widget = document.getElementById('fav-widget');
+const closeBtn = document.getElementById('close-btn');
+const addBtn = document.getElementById('add-btn');
+const sitesEl = document.getElementById('sites');
+
+favBtn.addEventListener('click', () => {
+  widget.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+  widget.style.display = 'none'; 
+});
+
+addBtn.addEventListener('click', () => {
+  let name = prompt('Name');
+  let url = prompt('URL');
+  let notes = prompt('Notes');
+
+  let site = {
+    name: name, 
+    url: url,
+    notes: notes
+  };
+
+  sites.push(site);
+  saveSites();
+  renderSites();
+});
+
+function removeSite(index) {
+  sites.splice(index, 1);
+  saveSites();
+  renderSites();
+} 
+
+function editSite(index) {
+  let site = sites[index];
+
+  let name = prompt('Name', site.name);
+  let url = prompt('URL', site.url);
+  let notes = prompt('Notes', site.notes);
+
+  site.name = name;
+  site.url = url;
+  site.notes = notes;
+  
+  saveSites();
+  renderSites(); 
+}
+
+function renderSites() {
+  sitesEl.innerHTML = '';
+
+  sites.forEach((site, index) => {
+    let div = document.createElement('div');
+    div.classList.add('site-item');
+
+    div.innerHTML = `
+      <p>${site.name}</p>
+      <a href="${site.url}">${site.url}</a>
+      <p>${site.notes}</p>
+      <button onclick="editSite(${index})">Edit</button>
+      <button onclick="removeSite(${index})">Remove</button>
+    `;
+
+    sitesEl.appendChild(div);
+  });
+}
+  
+function saveSites() {
+  localStorage.setItem('favoriteSites', JSON.stringify(sites));
+}
+
+// Initial render
+renderSites();
+
+  </script>
+
+</body>
+</html>

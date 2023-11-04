@@ -1,0 +1,12 @@
+PyQt5
+PyQtWebEngine
+keyboard
+bcrypt
+cryptography
+Pillow
+pycryptodome
+scapy
+re2
+bs4
+beautifulsoup4
+mitmproxy
